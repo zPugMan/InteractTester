@@ -18,13 +18,16 @@ import com.unicacorp.interact.api.jsoverhttp.InteractAPI;
 
 /**
  * Testing mechanism
- * @author zbeth
+ * @author zbethem@amberleaf.net
  *
  */
 public class InteractTest {
 
 	private static final Logger log = LogManager.getLogger(InteractTest.class);
 	
+	/** 
+	 * Constructor
+	 */
 	public InteractTest()
 	{
 		try{
@@ -38,6 +41,10 @@ public class InteractTest {
 		}
 	}
 	
+	/**
+	 * Constructor
+	 * @param environ
+	 */
 	public InteractTest(String environ)
 	{
 		try{
@@ -98,6 +105,11 @@ public class InteractTest {
 		return result;
 	}
 	
+	/**
+	 * Executes defined unit test
+	 * @param iu Loaded InteractUnit test
+	 * @return test result based on expected result
+	 */
 	public boolean executeUnitTest(InteractUnit iu)
 	{
 		log.info("Executing unit test: " + iu.getTestName() + " for IP: " + iu.getInteractionPoint());
@@ -179,44 +191,4 @@ public class InteractTest {
 		return foundOffer;
 	}
 
-	public boolean executeHomepageRank(InteractUnit iu) {
-		log.info("Executing unit test: " + iu.getTestName() + " for IP: " + iu.getInteractionPoint());
-		if(iu.getTestDescription()!=null)
-			log.info("\tValidating: " + iu.getTestDescription());
-		boolean foundOffer=false;
-		try {
-			InteractAPI client = InteractAPI.getInstance(interactUrl);
-			Response startResult = client.startSession(iu.getSessionId(), false, false, iu.getInteractionChannel(), iu.getAudience(), iu.getAudienceLevel(), iu.getSessionParams());
-			
-			if(startResult.getStatusCode()==startResult.STATUS_SUCCESS)
-			{
-				Response offerResult = client.getOffers(iu.getSessionId(), iu.getInteractionPoint(), iu.getOfferCount());
-				if(offerResult.getStatusCode()==offerResult.STATUS_SUCCESS)
-				{
-					log.debug("Need offer identified by: " + iu.getOfferId());
-					
-					if(offerResult.getOfferList()!=null && offerResult.getOfferList().getRecommendedOffers()!=null) 
-					{
-						int jRank=1;
-						for(Offer o  : offerResult.getOfferList().getRecommendedOffers() )
-						{
-							log.info("Ranking: " + jRank + "; " +o.getOfferName());
-							jRank++;
-						}
-					}
-				}
-			}
-			client.endSession(iu.getSessionId());
-		}
-		catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Exception e){
-			e.printStackTrace();
-		} 
-		return true;
-	}
 }

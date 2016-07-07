@@ -10,7 +10,7 @@ import org.apache.log4j.*;
 import com.unicacorp.interact.api.*;
 /**
  * A single Interact Test definition, which will be processed through the API
- * @author zbeth
+ * @author zbethem@amberleaf.net
  *
  */
 public class InteractUnit {
@@ -26,18 +26,49 @@ public class InteractUnit {
 	}
 	
 	private UnitDefinition testDefinition;
+	
+	/**
+	 * NameValuePair array defining Interact audience
+	 */
 	private NameValuePair[] audience;
+	
+	/**
+	 * Interact defined Interaction Channel
+	 */
 	private String interactionChannel;
+	
+	/**
+	 * Interact session id
+	 */
 	private String sessionId;
+	
+	/**
+	 * Interact audience
+	 */
 	private String audienceLevel;
+	
+	/** 
+	 * Interact interaction point for offer retrieval
+	 */
 	private String interactionPoint;
+	
+	/**
+	 * Offers desired
+	 */
 	private int offerCount;
+	
+	/**
+	 * NameValuePair array to submit for session params
+	 */
 	private NameValuePair[] sessionParams;
 	private int unitTest;
 	private String offerId;
 	private String testDescription;
 	public Boolean assertExist;
 	
+	/**
+	 * 
+	 */
 	private void setInteractParameters()
 	{
 		log.debug("Setting interaction parameters for unit test #: "+unitTest);

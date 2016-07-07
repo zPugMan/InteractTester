@@ -12,6 +12,11 @@ import org.apache.log4j.*;
 import com.unicacorp.interact.api.NameValuePair;
 import com.unicacorp.interact.api.NameValuePairImpl;
 
+/**
+ * Internal Java class for NameValuePair data type
+ * @author zbethem@amberleaf.net
+ *
+ */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="param")
 public class UnitDefinitionParam {

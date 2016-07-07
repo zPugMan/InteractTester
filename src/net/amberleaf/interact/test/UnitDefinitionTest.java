@@ -7,6 +7,11 @@ import java.util.List;
 
 import javax.xml.bind.annotation.XmlElement;
 
+/**
+ * Internal Java class for a specific UnitTest
+ * @author zbethem@amberleaf.net
+ *
+ */
 @XmlRootElement
 public class UnitDefinitionTest {
 	

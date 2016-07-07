@@ -10,8 +10,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlElement;
 
 /**
- * Internal Java class representing the UnitTest definition
- * @author zbeth
+ * Internal Java class representing the UnitTest definition. This is the base class
+ * that reflects the entire unit test defined via XML
+ * @author zbethem@amberleaf.net
  *
  */
 @XmlRootElement

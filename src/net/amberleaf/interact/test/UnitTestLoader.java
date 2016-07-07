@@ -19,8 +19,8 @@ import org.xml.sax.*;
 import org.apache.log4j.*;
 
 /**
- * Complete Unit Test definition(s) as read in from XML source
- * @author zbeth
+ * Unit Test definition(s) as read in from XML source
+ * @author zbethem@amberleaf.net
  *
  */
 public class UnitTestLoader {
@@ -52,6 +52,11 @@ public class UnitTestLoader {
 		loadXml();
 	}
 	
+	/**
+	 * Constructor
+	 * @param xmlFile
+	 * @throws Exception
+	 */
 	public UnitTestLoader(File xmlFile) throws Exception
 	{
 		log.debug("Constructing UnitDefinition..");
@@ -67,6 +72,11 @@ public class UnitTestLoader {
 	public String getOfferTestId(){
 		return offerTestId;
 	}
+	
+	/**
+	 * Retrieves number of unit tests defined in loaded file
+	 * @return
+	 */
 	public int getTestCount(){
 		return testCount;
 	}
@@ -74,6 +84,10 @@ public class UnitTestLoader {
 		return utDef;
 	}
 	
+	/**
+	 * Load .properties to retrieve unit test staging directory
+	 * @throws Exception
+	 */
 	private void loadProperties() throws Exception
 	{
 		try{
@@ -87,6 +101,10 @@ public class UnitTestLoader {
 			throw new Exception("Issue has occurred in contructing Unit Test definition.. please review logs.");
 		}
 	}
+	
+	/**
+	 * Loads XML defining the UnitTest
+	 */
 	private void loadXml()
 	{
 		File xml = getXmlFileName();
@@ -95,6 +113,11 @@ public class UnitTestLoader {
 			loadXml(xml);
 		}
 	}
+	
+	/**
+	 * Loads XML defining the UnitTest
+	 * @param xml
+	 */
 	private void loadXml(File xml)
 	{
 		if(xml.exists())
@@ -119,7 +142,11 @@ public class UnitTestLoader {
 		}
 	}
 	
-	
+	/**
+	 * Retrieves XML unit test file using filename string (offerTestId) with the assumption
+	 * that the file follows the naming convention [offerTestId].xml
+	 * @return
+	 */
 	private File getXmlFileName()
 	{
 		if(offerTestId!=null && xmlTestDirectory!=null)
