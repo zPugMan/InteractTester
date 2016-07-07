@@ -9,6 +9,7 @@ import net.amberleaf.interact.test.InteractUnit;
 import net.amberleaf.interact.test.UnitTestLoader;
 
 /**
+ * Interact UnitTest class
  * @author zbethem@amberleaf.net
  *
  */
@@ -53,6 +54,11 @@ public class InteractUT {
 		}
 	}
 	
+	/**
+	 * Argument validation
+	 * @param args
+	 * @return
+	 */
 	public static boolean validArgs(String[] args)
 	{
 		boolean result = false;
@@ -74,6 +80,10 @@ public class InteractUT {
 		return result;
 	}
 	
+	/**
+	 * Argument syntax
+	 * @return
+	 */
 	public static String getArgSyntax()
 	{
 		return "Syntax:   InteractUT.java <env> <pif#>";
