@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfferTest>
+	<OfferID></OfferID>
+	<InteractionChannel></InteractionChannel>
+	<SessionID></SessionID>
+	<Description></Description>
+	<Tests>
+		<UnitTest>
+			<InteractionPoint></InteractionPoint>
+			<Params>
+				<Param name="" type="" value="" />
+			</Params>
+		</UnitTest>
+	</Tests>
+</OfferTest>
